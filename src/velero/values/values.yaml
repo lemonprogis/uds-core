@@ -3,11 +3,7 @@ credentials:
   name: "velero-bucket-credentials"
   secretContents:
     cloud: |
-      AZURE_SUBSCRIPTION_ID=###ZARF_VAR_VELERO_SUBSCRIPTION_ID###
-      AZURE_TENANT_ID=###ZARF_VAR_VELERO_TENANT_ID###
-      AZURE_CLIENT_ID=###ZARF_VAR_VELERO_CLIENT_ID###
-      AZURE_CLIENT_SECRET=###ZARF_VAR_VELERO_CLIENT_SECRET###
-      AZURE_RESOURCE_GROUP=###ZARF_VAR_VELERO_RESOURCE_GROUP###
+      AZURE_STORAGE_ACCOUNT_ACCESS_KEY=###ZARF_VAR_VELERO_STORAGE_ACCOUNT_ACCESS_KEY###
       AZURE_CLOUD_NAME=###ZARF_VAR_VELERO_CLOUD_NAME###
 configuration:
   backupStorageLocation:
@@ -17,6 +13,7 @@ configuration:
       config: 
         storageAccount=###ZARF_VAR_VELERO_STORAGE_ACCOUNT###
         resourceGroup=###ZARF_VAR_VELERO_RESOURCE_GROUP###
+        storageAccountKeyEnvVar=###ZARF_VAR_VELERO_STORAGE_ACCOUNT_ACCESS_KEY###
   # volumeSnapshotLocation:
   #   - name: default
   #     provider: aws

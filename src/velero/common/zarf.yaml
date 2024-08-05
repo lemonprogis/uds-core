@@ -5,15 +5,11 @@ metadata:
   url: https://velero.io/
 
 variables:
-  - name: VELERO_SUBSCRIPTION_ID
-  - name: VELERO_TENANT_ID
-  - name: VELERO_CLIENT_ID
-  - name: VELERO_CLIENT_SECRET
-    sensitive: true
   - name: VELERO_RESOURCE_GROUP
   - name: VELERO_CLOUD_NAME
   - name: VELERO_STORAGE_ACCOUNT
-
+  - name: VELERO_STORAGE_ACCOUNT_ACCESS_KEY
+  
 components:
   - name: velero
     required: true
