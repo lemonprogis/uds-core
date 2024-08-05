@@ -1,29 +1,7 @@
 credentials:
   useSecret: true
   name: "velero-bucket-credentials"
-  secretContents:
-    cloud: |
-      AZURE_STORAGE_ACCOUNT_ACCESS_KEY=###ZARF_VAR_VELERO_STORAGE_ACCOUNT_ACCESS_KEY###
-      AZURE_CLOUD_NAME=###ZARF_VAR_VELERO_CLOUD_NAME###
 configuration:
-  backupStorageLocation:
-    - name: default
-      provider: azure
-      bucket: "velero"
-      config: 
-        storageAccount=###ZARF_VAR_VELERO_STORAGE_ACCOUNT###
-        resourceGroup=###ZARF_VAR_VELERO_RESOURCE_GROUP###
-        storageAccountKeyEnvVar=###ZARF_VAR_VELERO_STORAGE_ACCOUNT_ACCESS_KEY###
-  # volumeSnapshotLocation:
-  #   - name: default
-  #     provider: aws
-  #     config:
-  #       region: "###ZARF_VAR_VELERO_BUCKET_REGION###"
-  #       s3ForcePathStyle: true
-  #       s3Url: "###ZARF_VAR_VELERO_BUCKET_PROVIDER_URL###"
-  #     credential:
-  #       name: "velero-bucket-credentials"
-  #       key: "cloud"
 snapshotsEnabled: false
 schedules:
   udsbackup:
