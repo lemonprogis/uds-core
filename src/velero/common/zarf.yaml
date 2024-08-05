@@ -3,12 +3,6 @@ metadata:
   name: uds-core-velero-common
   description: "UDS Core Velero Common"
   url: https://velero.io/
-
-variables:
-  - name: VELERO_RESOURCE_GROUP
-  - name: VELERO_CLOUD_NAME
-  - name: VELERO_STORAGE_ACCOUNT
-  - name: VELERO_STORAGE_ACCOUNT_ACCESS_KEY
   
 components:
   - name: velero
