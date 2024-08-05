@@ -3,21 +3,20 @@ credentials:
   name: "velero-bucket-credentials"
   secretContents:
     cloud: |
-      [default]
-      aws_access_key_id=###ZARF_VAR_VELERO_BUCKET_KEY###
-      aws_secret_access_key=###ZARF_VAR_VELERO_BUCKET_KEY_SECRET###
+      AZURE_SUBSCRIPTION_ID=###ZARF_VAR_VELERO_SUBSCRIPTION_ID###
+      AZURE_TENANT_ID=###ZARF_VAR_VELERO_TENANT_ID###
+      AZURE_CLIENT_ID=###ZARF_VAR_VELERO_CLIENT_ID###
+      AZURE_CLIENT_SECRET=###ZARF_VAR_VELERO_CLIENT_SECRET###
+      AZURE_RESOURCE_GROUP=###ZARF_VAR_VELERO_RESOURCE_GROUP###
+      AZURE_CLOUD_NAME=###ZARF_VAR_VELERO_CLOUD_NAME###
 configuration:
   backupStorageLocation:
     - name: default
-      provider: aws
-      bucket: "###ZARF_VAR_VELERO_BUCKET###"
-      config:
-        region: "###ZARF_VAR_VELERO_BUCKET_REGION###"
-        s3ForcePathStyle: true
-        s3Url: "###ZARF_VAR_VELERO_BUCKET_PROVIDER_URL###"
-      credential:
-        name: "###ZARF_VAR_VELERO_BUCKET_CREDENTIAL_NAME###"
-        key: "###ZARF_VAR_VELERO_BUCKET_CREDENTIAL_KEY###"
+      provider: azure
+      bucket: "velero"
+      config: 
+        storageAccount=###ZARF_VAR_VELERO_STORAGE_ACCOUNT###
+        resourceGroup=###ZARF_VAR_VELERO_RESOURCE_GROUP###
   # volumeSnapshotLocation:
   #   - name: default
   #     provider: aws
@@ -32,7 +31,7 @@ snapshotsEnabled: false
 schedules:
   udsbackup:
     disabled: false
-    schedule: "0 3 * * *"
+    schedule: "1 * * * *"
     useOwnerReferencesInBackup: false
     template:
       csiSnapshotTimeout: 0s
